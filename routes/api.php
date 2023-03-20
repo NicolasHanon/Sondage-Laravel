@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validations\ValidationException;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function() {
+    Route::get('/user', [UserController::class, 'show']);
+    Route::post('/user/logout', function(Request $request) {
+        auth()->user()->tokens()->delete();
+    });
+});
+
+/*
+----------------------
+ Create an account.
+----------------------
+*/
+Route::post('/register', [UserController::class, 'store']);
+
+/*
+---------
+ Log in
+---------
+*/
+
+Route::post('/login', function(Request $request) {
+    $request->validate([
+        'email' => 'required|email|max:50',
+        'password' => 'required|string|min:8',
+    ]);
+
+    $user = User::where('email', $request->email)->first();
+    if(!$user || !Hash::check($request->password, $usre->password)) {
+        throw ValidationException::withMessages([
+            'email' => 'The provided credentials are incorrect.'
+        ]);
+    }
+
+    return $user->createToken('auth_token')->plainTextToken;
 });
