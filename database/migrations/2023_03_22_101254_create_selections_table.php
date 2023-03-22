@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('selections', function (Blueprint $table) {
             $table->id();
+            $table->text('SELEC_LIBELLE');
+            $table->foreign('question_id')
+            ->references('id')
+            ->on('Question')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }

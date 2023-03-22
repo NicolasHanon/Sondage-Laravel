@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\votes>
  */
-class VotesFactory extends Factory
+class VoteFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,6 +18,7 @@ class VotesFactory extends Factory
     {
         return [
             //
+            'VOTE_DATE' => fake()->date(10),
         ];
     }
 }

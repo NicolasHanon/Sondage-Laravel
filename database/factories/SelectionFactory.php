@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\sondages>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\selections>
  */
-class SondagesFactory extends Factory
+class SelectionFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,6 +18,7 @@ class SondagesFactory extends Factory
     {
         return [
             //
+            'SELEC_LIBELLE' => fake()->text(10),
         ];
     }
 }

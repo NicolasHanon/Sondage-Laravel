@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SelectionsSeeder extends Seeder
+class SelectionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,5 +13,6 @@ class SelectionsSeeder extends Seeder
     public function run(): void
     {
         //
+        \App\Models\Selection::factory(10)->create();
     }
 }

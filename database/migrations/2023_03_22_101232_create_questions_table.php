@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
+            $table->text('QUES_LIBELLE');
+            $table->foreign('sondage_id')
+            ->references('id')
+            ->on('Sondage')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }

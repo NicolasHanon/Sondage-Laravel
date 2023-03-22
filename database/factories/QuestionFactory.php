@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\selections>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\questions>
  */
-class SelectionsFactory extends Factory
+class QuestionFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,6 +18,7 @@ class SelectionsFactory extends Factory
     {
         return [
             //
+            'QUES_LIBELLE' => fake()->text(10),
         ];
     }
 }

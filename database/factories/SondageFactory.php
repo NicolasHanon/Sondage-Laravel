@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\questions>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\sondages>
  */
-class QuestionsFactory extends Factory
+class SondageFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,6 +18,9 @@ class QuestionsFactory extends Factory
     {
         return [
             //
+            'SON_TITRE' => fake()->text(10),
+            'SON_DATE' => fake()->date(10),
+            'SON_DESCRIPTION' => fake()->text(50),
         ];
     }
 }

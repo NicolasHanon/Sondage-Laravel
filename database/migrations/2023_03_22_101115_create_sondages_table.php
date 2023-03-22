@@ -11,8 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sondages', function (Blueprint $table) {
+        Schema::create('sondage', function (Blueprint $table) {
             $table->id();
+            $table->text('SON_TITRE');
+            $table->date('SON_DATE');
+            $table->text('SON_DESCRIPTION');
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('User')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }
