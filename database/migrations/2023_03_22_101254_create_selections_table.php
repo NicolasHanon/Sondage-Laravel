@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('selections', function (Blueprint $table) {
             $table->id();
             $table->text('SELEC_LIBELLE');
+            $table->unsignedBigInteger('question_id');
             $table->foreign('question_id')
             ->references('id')
-            ->on('Question')
+            ->on('questions')
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();

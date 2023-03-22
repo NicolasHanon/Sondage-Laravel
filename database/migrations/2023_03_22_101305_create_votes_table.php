@@ -17,13 +17,13 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
             ->references('id')
-            ->on('User')
+            ->on('users')
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->unsignedBigInteger('selection_id');
             $table->foreign('selection_id')
             ->references('id')
-            ->on('Selection')
+            ->on('selections')
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();
