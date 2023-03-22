@@ -4,7 +4,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validations\ValidationException;
 use App\Http\Controllers\UserController;
-use App\Http\Resource\UserResource;
 use App\Models\User;
 
 /*
