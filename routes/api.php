@@ -17,12 +17,28 @@ use App\Models\User;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+// api/sondages NUMERO 1
+
+Route::get('/sondages', [SondageController::class, "index"]);
+
+// api/sondages/votes NUMERO 3
+Route::get('/sondages/votes', [SondageController::class, "results"])->whereNumber('id');
 
 Route::middleware('auth:sanctum')->group(function() {
     Route::get('/user', [UserController::class, 'show']);
     Route::post('/user/logout', function(Request $request) {
         auth()->user()->tokens()->delete();
     });
+    //NUMERO 2
+    Route::get('/sondages/{id}', [SondageController::class, "show"])->whereNumber('id');
+    //NUMERO 4
+    Route::post('/sondage', [SondageController::class, "store"]);
+    //NUMERO 5
+    Route::post('/question', [QuestionController::class, "store"]);
+    //NUMERO 6
+    Route::post('/selection', [SelectionController::class, "store"]);
+    //NUMERO 7
+    Route::post('/vote', [VoteController::class, "store"]);
 });
 
 /*
@@ -54,6 +70,3 @@ Route::post('/login', function(Request $request) {
     return $user->createToken('auth_token')->plainTextToken;
 });
 
-// api/sondages
-
-Route::get('/sondages', [SondageController::class, "index"]);
