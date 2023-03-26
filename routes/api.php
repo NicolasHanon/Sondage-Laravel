@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validations\ValidationException;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SondageController;
 use App\Models\User;
 
 /*
@@ -52,3 +53,7 @@ Route::post('/login', function(Request $request) {
 
     return $user->createToken('auth_token')->plainTextToken;
 });
+
+// api/sondages
+
+Route::get('/sondages', [SondageController::class, "index"]);

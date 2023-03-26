@@ -18,6 +18,7 @@ class SelectionFactory extends Factory
     {
         return [
             //
+            'question_id' => fake()->numberBetween(1, 16),
             'SELEC_LIBELLE' => fake()->text(10),
         ];
     }

@@ -18,7 +18,9 @@ class VoteFactory extends Factory
     {
         return [
             //
-            'VOTE_DATE' => fake()->date(10),
+            'selection_id' => fake()->numberBetween(1, 17),
+            'user_id' => fake()->numberBetween(1, 10),
+            'VOTE_DATE' => fake()->dateTimeBetween('-1 years', 'now'),
         ];
     }
 }

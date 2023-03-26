@@ -10,10 +10,10 @@ class Sondage extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'user_id',
         'SON_TITRE',
         'SON_DATE',
         'SON_DESCRIPTION',
-        'user_id',
         'created_at',
         'updated_at',
     ];

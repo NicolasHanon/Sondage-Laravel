@@ -18,8 +18,9 @@ class SondageFactory extends Factory
     {
         return [
             //
+            'user_id' => fake()->numberBetween(1, 10),
             'SON_TITRE' => fake()->text(10),
-            'SON_DATE' => fake()->date(10),
+            'SON_DATE' => fake()->dateTimeBetween('-1 years', 'now'),
             'SON_DESCRIPTION' => fake()->text(50),
         ];
     }

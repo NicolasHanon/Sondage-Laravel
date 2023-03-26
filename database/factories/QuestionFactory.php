@@ -18,6 +18,7 @@ class QuestionFactory extends Factory
     {
         return [
             //
+            'sondage_id' => fake()->numberBetween(2, 11),
             'QUES_LIBELLE' => fake()->text(10),
         ];
     }
