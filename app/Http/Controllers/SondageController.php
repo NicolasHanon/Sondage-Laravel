@@ -18,7 +18,7 @@ class SondageController extends Controller
     {
         //
         try {
-            return Sondage::all();
+            return SondageResource::collection(Sondage::with('Questions')->get());
         }
         catch(\Illuminate\Database\QueryException $e) {
             Log::error('Erreur accès base de données');

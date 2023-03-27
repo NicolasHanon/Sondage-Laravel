@@ -30,7 +30,7 @@ Route::middleware('auth:sanctum')->group(function() {
         auth()->user()->tokens()->delete();
     });
     //NUMERO 2
-    Route::get('/sondages/{id}', [SondageController::class, "show"])->whereNumber('id');
+    Route::get('/sondage/{id}', [SondageController::class, "show"])->whereNumber('id');
     //NUMERO 4
     Route::post('/sondage', [SondageController::class, "store"]);
     //NUMERO 5
