@@ -7,6 +7,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class VoteResource extends JsonResource
 {
+    public static $wrap = 'user';
     /**
      * Transform the resource into an array.
      *
@@ -15,7 +16,6 @@ class VoteResource extends JsonResource
     public function toArray(Request $request)
     {
         return [
-            'VOT_DATE' => $this->VOT_DATE,
             'selection_id' => $this->selection_id,
             'user_id' => $this->user_id,
         ];
