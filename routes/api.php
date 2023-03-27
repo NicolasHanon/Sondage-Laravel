@@ -4,7 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validations\ValidationException;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SelectionController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SondageController;
+use App\Http\Controllers\VoteController;
 use App\Models\User;
 
 /*
@@ -22,7 +25,7 @@ use App\Models\User;
 Route::get('/sondages', [SondageController::class, "index"]);
 
 // api/sondages/votes NUMERO 3
-Route::get('/sondages/votes', [SondageController::class, "results"])->whereNumber('id');
+Route::post('/votes', [SondageController::class, "results"])->whereNumber('id');
 
 Route::middleware('auth:sanctum')->group(function() {
     Route::get('/user', [UserController::class, 'show']);
@@ -30,7 +33,7 @@ Route::middleware('auth:sanctum')->group(function() {
         auth()->user()->tokens()->delete();
     });
     //NUMERO 2
-    Route::get('/sondage/{id}', [SondageController::class, "show"])->whereNumber('id');
+    Route::get('/sondages/{id}', [SondageController::class, "show"])->whereNumber('id');
     //NUMERO 4
     Route::post('/sondage', [SondageController::class, "store"]);
     //NUMERO 5

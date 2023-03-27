@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SelectionResource extends JsonResource
+class VoteResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,10 +15,9 @@ class SelectionResource extends JsonResource
     public function toArray(Request $request)
     {
         return [
-            'id' => $this->id,
-            'question_id' => $this->question_id,
-            'SELEC_LIBELLE' => $this->SELEC_LIBELLE,
-            'votes' => VoteResource::collection($this->votes),
+            'VOT_DATE' => $this->VOT_DATE,
+            'selection_id' => $this->selection_id,
+            'user_id' => $this->user_id,
         ];
     }
 }

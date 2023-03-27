@@ -32,7 +32,7 @@ class SondageController extends Controller
             'id' => 'required|integer',
         ]);
         try {
-            $votes = Sondage::with('selections.votes.user','selecions.votes')->where('sondages.id', $idValidated['id'])->get();
+            $votes = Sondage::with('selections.votes.user','selections.votes')->where('sondages.id', $idValidated['id'])->get();
             //return VoteResource::collection($votes);
             return $votes;
         }

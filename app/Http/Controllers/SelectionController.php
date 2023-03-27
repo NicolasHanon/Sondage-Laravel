@@ -17,18 +17,6 @@ class SelectionController extends Controller
     public function index()
     {
         //
-        $validatedRequest = $request->validate([
-            'sondage_id' => 'required|integer',
-            'QUES_LIBELLE' => 'required', 'string', 'max:100',
-        ]);
-        try {
-            $question = Selection::create($validatedRequest);
-            return response()->json($question, 201);
-        }
-        catch(\Illuminate\Database\QueryException $e) {
-            Log::error('Erreur accès base de données');
-            return response()->json(['message' => 'Ressource indisponible.'], 503);
-        }
     }
 
     /**
@@ -37,6 +25,18 @@ class SelectionController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedRequest = $request->validate([
+            'question_id' => 'required|integer',
+            'SELEC_LIBELLE' => 'required', 'string', 'max:100',
+        ]);
+        try {
+            $selection = Selection::create($validatedRequest);
+            return response()->json($selection, 201);
+        }
+        catch(\Illuminate\Database\QueryException $e) {
+            Log::error('Erreur accès base de données');
+            return response()->json(['message' => 'Ressource indisponible.'], 503);
+        }
     }
 
     /**
