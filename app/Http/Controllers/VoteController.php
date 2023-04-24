@@ -35,7 +35,7 @@ class VoteController extends Controller
         }
         catch(\Illuminate\Database\QueryException $e) {
             Log::error('Erreur accès base de données');
-            return response()->json(['message' => 'Ressource indisponible.'], 503);
+            return response()->json(['message' => $validatedRequest], 503);
         }
     }
 

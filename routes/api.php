@@ -24,9 +24,6 @@ use App\Models\User;
 
 Route::get('/sondages', [SondageController::class, "index"]);
 
-// api/sondages/votes NUMERO 3
-Route::post('/votes', [SondageController::class, "results"])->whereNumber('id');
-
 Route::middleware('auth:sanctum')->group(function() {
     Route::get('/user', [UserController::class, 'show']);
     Route::post('/user/logout', function(Request $request) {
@@ -34,6 +31,8 @@ Route::middleware('auth:sanctum')->group(function() {
     });
     //NUMERO 2
     Route::get('/sondages/{id}', [SondageController::class, "show"])->whereNumber('id');
+    // api/sondages/votes NUMERO 3
+    Route::post('/votes', [SondageController::class, "results"])->whereNumber('id');
     //NUMERO 4
     Route::post('/sondage', [SondageController::class, "store"]);
     //NUMERO 5
